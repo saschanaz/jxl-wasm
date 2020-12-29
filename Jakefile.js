@@ -18,6 +18,7 @@ function configure() {
     `-DCMAKE_CROSSCOMPILING_EMULATOR="${process.execPath}"`,
     '-DJPEGXL_STATIC=ON',
     `-DBUILD_TESTING=OFF`,
+    `-DCMAKE_EXE_LINKER_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s NODERAWFS=1 -s NODE_CODE_CACHING=1 -s WASM_ASYNC_COMPILATION=0`, // -s EXPORT_NAME='_libjxlem' -s MODULARIZE=1 -s EXTRA_EXPORTED_RUNTIME_METHODS=['callMain']"`
   ]
   return args.join(" ");
 }
