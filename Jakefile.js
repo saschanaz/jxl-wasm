@@ -5,7 +5,6 @@ const fs = require("fs/promises");
 const BUILD_DIR = process.env.BUILD_DIR || "build";
 const MYDIR = path.resolve(__dirname, "submodules/jpeg-xl/");
 const CMAKE_BUILD_TYPE="Release";
-const JPEGXL_VERSION = require("./package.json").version;
 
 function configure() {
   const args = [
@@ -13,7 +12,6 @@ function configure() {
     `-H"${MYDIR}"`,
     `-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"`,
     `-G Ninja`,
-    `-DJPEGXL_VERSION="${JPEGXL_VERSION}"`,
     // emcmake sets a quoted string which then can't be used in cmake COMMAND
     // See https://github.com/emscripten-core/emscripten/issues/13126
     `-DCMAKE_CROSSCOMPILING_EMULATOR="${process.execPath}"`,
