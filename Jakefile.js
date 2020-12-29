@@ -38,7 +38,9 @@ async function configure() {
     `-DZLIB_LIBRARY="${ZLIB_DIR}"`,
     `-DZLIB_INCLUDE_DIR="${LIB_INCLUDE}"`,
     `-DBUILD_TESTING=OFF`,
-    `-DCMAKE_EXE_LINKER_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s NODERAWFS=1 -s NODE_CODE_CACHING=1 -s WASM_ASYNC_COMPILATION=0`, // -s EXPORT_NAME='_libjxlem' -s MODULARIZE=1 -s EXTRA_EXPORTED_RUNTIME_METHODS=['callMain']"`
+    // Enable NODE_CODE_CACHING when it becomes available again.
+    // https://github.com/nodejs/node/issues/18265#issuecomment-622990783
+    `-DCMAKE_EXE_LINKER_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s NODERAWFS=1`,
   ]
   return args.join(" ");
 }
@@ -90,5 +92,5 @@ task("default", ["configure", "build", "copy"])
 
 desc("clean");
 task("clean", () => {
-    jake.rmRf("build");
+  jake.rmRf("build");
 })
