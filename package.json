@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/saschanaz/jxl-wasm#readme",
   "devDependencies": {
-    "jake": "^10.4.6"
+    "jake": "^10.4.6",
+    "lookpath": "^1.1.0"
   },
   "files": [
     "lib/*.js",
