@@ -3,8 +3,8 @@
   "version": "0.2.1",
   "description": "WebAssembly-compiled JPEG XL command line tool for Node.js v8+",
   "bin": {
-    "cjxl": "lib/cjxl-wrap.js",
-    "djxl": "lib/djxl-wrap.js"
+    "cjxl-wasm": "lib/cjxl-wrap.js",
+    "djxl-wasm": "lib/djxl-wrap.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
