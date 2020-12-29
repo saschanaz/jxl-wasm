@@ -24,20 +24,13 @@ function configure() {
   return args.join(" ");
 }
 
-desc("Prepare embuilder-supported dependencies");
-task("embuilder", () => {
-  const command = "embuilder build libpng";
-  console.log(command);
-  child_process.execSync(command);
-});
-
 desc("Clone dependencies");
 task("deps", [], () => {
   child_process.execSync("git submodule update --init --recursive");
 });
 
 desc("Configure JPEG XL command line interface");
-task("configure", ["embuilder", "deps"], () => {
+task("configure", ["deps"], () => {
   const command = `emcmake cmake ${configure()}`;
   console.log(command);
   child_process.execSync(command, {
