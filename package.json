@@ -25,7 +25,7 @@
     "url": "https://github.com/saschanaz/jxl-wasm/issues"
   },
   "homepage": "https://github.com/saschanaz/jxl-wasm#readme",
-  "dependencies": {
+  "devDependencies": {
     "jake": "^10.4.6"
   },
   "files": [
