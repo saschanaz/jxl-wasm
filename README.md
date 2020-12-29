@@ -1,5 +1,10 @@
 # jxl-wasm
-WebAssembly-compiled JPEG XL command line tool for Node.js
+WebAssembly-compiled JPEG XL command line tool for Node.js.
+
+## How to use
+
+1. `npm i -g jxl-wasm`
+2. Run `cjxl-wasm` for encoding and `djxl-wasm` for decoding.
 
 ## Build environment
 
