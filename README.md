@@ -10,6 +10,6 @@ WebAssembly-compiled JPEG XL command line tool for Node.js.
 
 Below are my current environment, which doesn't exactly mean they are the required versions.
 
-* emscripten 2.0.11
+* Emscripten 2.0.11
 * Node.js 15.4.0
-* cmake 3.17.1
+* CMake 3.17.1
