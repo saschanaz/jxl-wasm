@@ -1,0 +1,27 @@
+{
+  "name": "jpegxl-wasm",
+  "version": "0.0.1",
+  "description": "WebAssembly-compiled JPEG XL command line tool for Node.js v8+",
+  "main": "lib/jpegxl-wasm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saschanaz/jpegxl-wasm.git"
+  },
+  "keywords": [
+    "jpeg-xl",
+    "wasm",
+    "webassembly"
+  ],
+  "author": "Kagami Sascha Rosylight <saschanaz@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saschanaz/jpegxl-wasm/issues"
+  },
+  "homepage": "https://github.com/saschanaz/jpegxl-wasm#readme",
+  "dependencies": {
+    "jake": "^10.4.6"
+  }
+}

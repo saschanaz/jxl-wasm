@@ -1,0 +1,3 @@
+[submodule "jpeg-xl"]
+	path = submodules/jpeg-xl
+	url = https://gitlab.com/wg1/jpeg-xl.git
