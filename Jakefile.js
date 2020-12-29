@@ -1,5 +1,6 @@
 const child_process = require("child_process");
 const path = require("path");
+const fs = require("fs/promises");
 
 const BUILD_DIR = process.env.BUILD_DIR || "build";
 const MYDIR = path.resolve(__dirname, "submodules/jpeg-xl/");
@@ -61,7 +62,14 @@ task("build", () => {
   })
 });
 
-task("default", ["configure", "build"])
+task("copy", [], async () => {
+  const targets = ["cjxl.js", "cjxl.wasm", "djxl.js", "djxl.wasm"];
+  for (const target of targets) {
+    await fs.copyFile(`build/tools/${target}`, `lib/${target}`);
+  }
+});
+
+task("default", ["configure", "build", "copy"])
 
 desc("clean");
 task("clean", () => {
