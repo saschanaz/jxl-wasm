@@ -1,6 +1,6 @@
 {
   "name": "jxl-wasm",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "WebAssembly-compiled JPEG XL command line tool for Node.js v8+",
   "bin": {
     "cjxl": "lib/cjxl-wrap.js",
@@ -27,5 +27,8 @@
   "homepage": "https://github.com/saschanaz/jxl-wasm#readme",
   "dependencies": {
     "jake": "^10.4.6"
-  }
+  },
+  "files": [
+    "lib/"
+  ]
 }
