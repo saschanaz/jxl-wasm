@@ -17,6 +17,7 @@ async function getEmsdkPath() {
 
 async function configure() {
   const EMSCRIPTEN_WASM_CACHE_DIR = path.resolve(await getEmsdkPath(), "cache/wasm/");
+  const LIBGIF_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libgif.a");
   const LIBJPEG_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libjpeg.a");
   const LIBPNG_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libpng.a");
   const ZLIB_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libz.a");
@@ -31,12 +32,16 @@ async function configure() {
     // See https://github.com/emscripten-core/emscripten/issues/13126
     `-DCMAKE_CROSSCOMPILING_EMULATOR="${process.execPath}"`,
     '-DJPEGXL_STATIC=ON',
+
+    `-DGIF_LIBRARY="${LIBGIF_DIR}"`,
+    `-DGIF_INCLUDE_DIR="${LIB_INCLUDE}"`,
     `-DJPEG_LIBRARY="${LIBJPEG_DIR}"`,
     `-DJPEG_INCLUDE_DIR="${LIB_INCLUDE}"`,
     `-DPNG_LIBRARY="${LIBPNG_DIR}"`,
     `-DPNG_PNG_INCLUDE_DIR="${LIB_INCLUDE}"`,
     `-DZLIB_LIBRARY="${ZLIB_DIR}"`,
     `-DZLIB_INCLUDE_DIR="${LIB_INCLUDE}"`,
+
     `-DBUILD_TESTING=OFF`,
     // Enable NODE_CODE_CACHING when it becomes available again.
     // https://github.com/nodejs/node/issues/18265#issuecomment-622990783
@@ -52,7 +57,7 @@ task("submodules", () => {
 
 desc("Build emscripten-ports");
 task("emscripten-ports", () => {
-  child_process.execSync("embuilder build libjpeg libpng zlib");
+  child_process.execSync("embuilder build libgif libjpeg libpng zlib");
 });
 
 desc("Configure JPEG XL command line interface");
