@@ -16,12 +16,13 @@ async function getEmsdkPath() {
 }
 
 async function configure() {
-  const EMSCRIPTEN_WASM_CACHE_DIR = path.resolve(await getEmsdkPath(), "cache/wasm/");
-  const LIBGIF_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libgif.a");
-  const LIBJPEG_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libjpeg.a");
-  const LIBPNG_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libpng.a");
-  const ZLIB_DIR = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "libz.a");
-  const LIB_INCLUDE = path.resolve(EMSCRIPTEN_WASM_CACHE_DIR, "include") + "/";
+  const EMSCRIPTEN_CACHE_SYSROOT_DIR = path.resolve(await getEmsdkPath(), "cache/sysroot/");
+  const EMSCRIPTEN_CACHE_WASM_DIR = path.resolve(EMSCRIPTEN_CACHE_SYSROOT_DIR, "lib/wasm32-emscripten/");
+  const LIBGIF_DIR = path.resolve(EMSCRIPTEN_CACHE_WASM_DIR, "libgif.a");
+  const LIBJPEG_DIR = path.resolve(EMSCRIPTEN_CACHE_WASM_DIR, "libjpeg.a");
+  const LIBPNG_DIR = path.resolve(EMSCRIPTEN_CACHE_WASM_DIR, "libpng.a");
+  const ZLIB_DIR = path.resolve(EMSCRIPTEN_CACHE_WASM_DIR, "libz.a");
+  const LIB_INCLUDE = path.resolve(EMSCRIPTEN_CACHE_SYSROOT_DIR, "include") + "/";
 
   const args = [
     `-B"${BUILD_DIR}"`,
@@ -57,7 +58,7 @@ task("submodules", () => {
 
 desc("Build emscripten-ports");
 task("emscripten-ports", () => {
-  child_process.execSync("embuilder build libgif libjpeg libpng zlib");
+  child_process.execSync("embuilder build giflib libjpeg libpng zlib");
 });
 
 desc("Configure JPEG XL command line interface");
