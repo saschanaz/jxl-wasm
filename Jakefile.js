@@ -44,7 +44,11 @@ async function configure() {
     `-DJPEGXL_ENABLE_EXAMPLES=OFF`,
     // Enable NODE_CODE_CACHING when it becomes available again.
     // https://github.com/nodejs/node/issues/18265#issuecomment-622990783
-    `-DCMAKE_EXE_LINKER_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s NODERAWFS=1`,
+    `-DCMAKE_EXE_LINKER_FLAGS="-s ALLOW_MEMORY_GROWTH=1 -s NODERAWFS=1 -msimd128"`,
+    `-DCMAKE_CXX_FLAGS="-msimd128"`,
+    `-DCMAKE_CXX_FLAGS="-msimd128"`,
+    // sjpeg confuses WASM SIMD with SSE
+    `-DSJPEG_ENABLE_SIMD=OFF`,
   ]
   return args.join(" ");
 }
