@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const { lookpath } = require("lookpath");
 
 const BUILD_DIR = process.env.BUILD_DIR || "build";
-const MYDIR = path.resolve(__dirname, "submodules/jpeg-xl/");
+const MYDIR = path.resolve(__dirname, "submodules/libjxl/");
 const CMAKE_BUILD_TYPE="Release";
 
 async function getEmsdkPath() {
