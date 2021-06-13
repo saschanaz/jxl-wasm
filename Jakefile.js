@@ -29,9 +29,6 @@ async function configure() {
     `-H"${MYDIR}"`,
     `-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"`,
     `-G Ninja`,
-    // emcmake sets a quoted string which then can't be used in cmake COMMAND
-    // See https://github.com/emscripten-core/emscripten/issues/13126
-    `-DCMAKE_CROSSCOMPILING_EMULATOR="${process.execPath}"`,
     '-DJPEGXL_STATIC=ON',
 
     `-DGIF_LIBRARY="${LIBGIF_DIR}"`,

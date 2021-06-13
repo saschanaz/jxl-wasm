@@ -10,6 +10,6 @@ WebAssembly-compiled JPEG XL command line tool for Node.js.
 
 Below are my current environment, which doesn't exactly mean they are the required versions.
 
-* Emscripten 2.0.13 (required for giflib)
+* Emscripten 2.0.22
 * Node.js 15.4.0
 * CMake 3.17.1
