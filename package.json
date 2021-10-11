@@ -1,6 +1,6 @@
 {
   "name": "jxl-wasm",
-  "version": "0.4.1",
+  "version": "0.7.0",
   "description": "WebAssembly-compiled JPEG XL command line tool for Node.js",
   "engines": {
     "node": ">=16.4.0"
